@@ -53,13 +53,13 @@ function generateCartItem(itemName) {
 
 function generateCartDescription() {
   var cartDescription = 'In your cart, you have '
-    for (var i=1; i<getCart().length -1; i++){
-    cartDescription+= `, ${getCart()[i].itemName} at $${getCart()[i].itemPrice}`
+  if ( getCart().length >= 1 ) {
+    cartDescription += `${getCart()[0].itemName} at $${getCart()[0].itemPrice}`
   }
   if ( getCart().length >= 2 ) {
     var middleCartItemsDescription = ''
     for (var i=1; i<getCart().length -1; i++) {
-      middleCartItemsDescription += 
+      middleCartItemsDescription += `, ${getCart()[i].itemName} at $${getCart()[i].itemPrice}`
     }
     cartDescription += `${middleCartItemsDescription}, and ${getCart()[getCart().length-1].itemName} at $${getCart()[getCart().length-1].itemPrice}`
   }
